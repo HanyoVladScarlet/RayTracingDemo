@@ -1,17 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Numerics;
 using System.Text;
 using CsDemo.Materials;
 using CsDemo.Utils;
 
-namespace CsDemo.Primes
+namespace CsDemo.CamPro
 {
     /// <summary>
-    /// 考虑全反射的玻璃材质实现
-    /// 对应章节10-3，图15
+    /// 简单的可变fov相机实现
+    /// 对应章节11-1，图17
     /// </summary>
-    internal class FullGlassMaterial
+    internal class CameraDemo
     {
         public static void RenderImage()
         {
@@ -24,21 +23,19 @@ namespace CsDemo.Primes
 
 
             // World
+            var r = (float)Math.Cos(MathUtil.GetRadian(45.0f));
             var world = new HittableList();
 
-            var materialGround = new LambertianMaterial(new Vector3(0.8f, 0.8f, 0));
-            var materialCenter = new LambertianMaterial(new Vector3(0.1f, 0.2f, 0.5f));
-            var materialLeft = new DielecticMaterial(1.5f);
-            var materialRight = new MetalMaterial(new Vector3(0.8f, 0.6f, 0.2f));
+            var materialLeft = new LambertianMaterial(new Vector3(0.0f, 0.0f, 1.0f));
+            var materialRight = new LambertianMaterial(new Vector3(1.0f, 0.0f, 0.0f));
 
-            world.Objects.Add(new SphereMesh(new Vector3(0, -100.5f, -1.0f), 100f, materialGround));
-            world.Objects.Add(new SphereMesh(new Vector3(0, 0, -1.0f), 0.5f, materialCenter));
-            world.Objects.Add(new SphereMesh(new Vector3(-1.0f, 0, -1.0f), 0.5f, materialLeft));
-            world.Objects.Add(new SphereMesh(new Vector3(1.0f, 0, -1.0f), 0.5f, materialRight));
+            world.Objects.Add(new SphereMesh(new Vector3(-r, 0.0f, -1.0f), r, materialLeft));
+            world.Objects.Add(new SphereMesh(new Vector3(r, 0.0f, -1.0f), r, materialRight));
 
 
             // Camera
-            var cam = new Camera();
+            var cam = new Camera(90.0f, aspectRatio);
+
 
             // Render
             var sb = new StringBuilder();
@@ -70,7 +67,7 @@ namespace CsDemo.Primes
 
             Console.SetCursorPosition(0, curTop + 1);
 
-            OutputUtil.SaveImage("Img15-GlassSphereThatSometimesRefracts.ppm", sb.ToString());
+            OutputUtil.SaveImage("Img17-WideAngleView.ppm", sb.ToString());
         }
     }
 }

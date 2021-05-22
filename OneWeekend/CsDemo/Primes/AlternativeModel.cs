@@ -8,7 +8,7 @@ namespace CsDemo.Primes
 {
     /// <summary>
     /// 另外一个光照模型-半球散射
-    /// 对应章节8-6，图11
+    /// 对应章节8-6，图10
     /// </summary>
     internal class AlternativeModel
     {

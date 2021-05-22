@@ -7,6 +7,10 @@ using CsDemo.Utils;
 
 namespace CsDemo.Primes
 {
+    /// <summary>
+    /// 光滑金属材质实现
+    /// 对应章节9-5，图11
+    /// </summary>
     internal class MetalMaterialDemo
     {
         public static void RenderImage()
@@ -24,8 +28,8 @@ namespace CsDemo.Primes
 
             var materialGround = new LambertianMaterial(new Vector3(0.8f, 0.8f, 0));
             var materialCenter = new LambertianMaterial(new Vector3(0.7f, 0.3f, 0.3f));
-            var materialLeft = new MatelMaterial(new Vector3(0.8f, 0.8f, 0.8f));
-            var materialRight = new MatelMaterial(new Vector3(0.8f, 0.6f, 0.2f));
+            var materialLeft = new MetalMaterial(new Vector3(0.8f, 0.8f, 0.8f));
+            var materialRight = new MetalMaterial(new Vector3(0.8f, 0.6f, 0.2f));
 
             world.Objects.Add(new SphereMesh(new Vector3(0, -100.5f, -1.0f), 100f, materialGround));
             world.Objects.Add(new SphereMesh(new Vector3(0, 0, -1.0f), 0.5f, materialCenter));

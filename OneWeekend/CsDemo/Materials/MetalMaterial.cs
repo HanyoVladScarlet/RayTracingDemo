@@ -6,7 +6,7 @@ using CsDemo.Utils;
 
 namespace CsDemo.Materials
 {
-    internal class MatelMaterial : IMaterial
+    internal class MetalMaterial : IMaterial
     {
         private float _fuzz;
 
@@ -17,13 +17,13 @@ namespace CsDemo.Materials
             set => _fuzz = value > 1 || value < 0 ? 0 : value;
         }
 
-        public MatelMaterial(Vector3 albedoColor)
+        public MetalMaterial(Vector3 albedoColor)
         {
             this.AlbedoColor = albedoColor;
             this.Fuzz = 0;
         }
 
-        public MatelMaterial(Vector3 albedoColor, float fuzz)
+        public MetalMaterial(Vector3 albedoColor, float fuzz)
         {
             this.AlbedoColor = albedoColor;
             this.Fuzz = fuzz;

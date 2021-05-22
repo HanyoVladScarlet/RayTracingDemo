@@ -6,12 +6,12 @@ using CsDemo.Utils;
 
 namespace CsDemo.Primes
 {
+    /// <summary>
+    /// 透明材质的初步实现
+    /// 对应章节10-2，图14
+    /// </summary>
     internal class DielectricDemo
     {
-        /// <summary>
-        /// 透明材质的初步实现
-        /// 对应章节10-2，图14
-        /// </summary>
         public static void RenderImage()
         {
             // Image
@@ -28,7 +28,7 @@ namespace CsDemo.Primes
             var materialGround = new LambertianMaterial(new Vector3(0.8f, 0.8f, 0));
             var materialCenter = new DielecticMaterial(1.5f);
             var materialLeft = new DielecticMaterial(1.5f);
-            var materialRight = new MatelMaterial(new Vector3(0.8f, 0.6f, 0.2f));
+            var materialRight = new MetalMaterial(new Vector3(0.8f, 0.6f, 0.2f));
 
             world.Objects.Add(new SphereMesh(new Vector3(0, -100.5f, -1.0f), 100f, materialGround));
             world.Objects.Add(new SphereMesh(new Vector3(0, 0, -1.0f), 0.5f, materialCenter));

@@ -3,6 +3,7 @@ using System.Text;
 using System.IO;
 using CsDemo.Primes;
 using CsDemo.Basics;
+using CsDemo.CamPro;
 
 namespace CsDemo
 {
@@ -60,11 +61,24 @@ namespace CsDemo
                 case "hollow":
                     HollowGlassDemo.RenderImage();
                     break;
+                // 
+                case "cam-demo":
+                    CameraDemo.RenderImage();
+                    break;
+                case "zoom-out":
+                    MovableCam.RenderImage();
+                    break;
+                case "zoom-in":
+                    MovableCam.RenderImage(true);
+                    break;
+                case "dof":
+                    DepthOfFieldDemo.RenderImage();
+                    break;
                 case "prime":
-                    PrimaryProgram.RenderImage();
+                    FinalScene.RenderImage();
                     break;
                 default:
-                    MetalMaterialDemo.RenderImage();
+                    ParallelFinalDemo.RenderImage();
                     break;
             }
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Numerics;
 using System.Text;
+using CsDemo.Utils;
 
 namespace CsDemo
 {
@@ -26,6 +27,12 @@ namespace CsDemo
             return $"{r} {g} {b}";
         }
 
+        /// <summary>
+        /// 格式化像素点的rgb信息
+        /// </summary>
+        /// <param name="pixelColor"></param>
+        /// <param name="samplesPerPixel"></param>
+        /// <returns></returns>
         public static string GetColorString(Vector3 pixelColor, int samplesPerPixel)
         {
             var r = pixelColor.X;
@@ -45,6 +52,13 @@ namespace CsDemo
             return $"{r} {g} {b}";
         }
 
+        /// <summary>
+        /// 可启用gamma校正的格式化颜色信息方法
+        /// </summary>
+        /// <param name="pixelColor"></param>
+        /// <param name="samplesPerPixel"></param>
+        /// <param name="withGammaAdjustment"></param>
+        /// <returns></returns>
         public static string GetColorString(Vector3 pixelColor, int samplesPerPixel, bool withGammaAdjustment)
         {
             if (!withGammaAdjustment) 
@@ -65,6 +79,12 @@ namespace CsDemo
             b = (short)(256 * Math.Clamp(b, 0, 0.999f));
 
             return $"{r} {g} {b}";
+        }
+
+
+        public static Vector3 GetRandomColor()
+        {
+            return 128.0f * MathUtil.GetRandomUnitVector3() + 128.0f * Vector3.One;
         }
     }
 }
